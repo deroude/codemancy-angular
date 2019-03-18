@@ -1,56 +1,7 @@
-- name: write the POM
-  template:
-    src: pom.xml.j2
-    dest: /target/pom.xml
-- name: create src directory
-  file:
-    path: '{{ basePackage }}'
-    state: directory
-- name: write the Base class
-  template:
-    src: Base.java.j2
-    dest: '{{ basePackage }}/{{appName}}.java'
-- name: create domain directory
-  file:
-    path: '{{ basePackage }}/domain'
-    state: directory
-- name: write the Entity classes
-  loop: "{{ (domain.relations|selectattr('name','equalto','entities')|first).children|list }}"
-  vars:
-    entity: "{{ item }}"
-    fields: "{{ (item.relations|selectattr('name','equalto','fields')|first).children|list }}"
-  template:
-    src: "Entity.java.j2"
-    dest: "{{ basePackage }}/domain/{{entity.name}}.java"
-- name: create repository directory
-  file:
-    path: '{{ basePackage }}/repository'
-    state: directory
-- name: write the Repository classes
-  loop: "{{ (domain.relations|selectattr('name','equalto','entities')|first).children|list  }}"
-  vars:
-    entity: "{{ item }}"
-    fields: "{{ (entity.relations|selectattr('name','equalto','fields')|first).children }}"
-  template:
-    src: "Repository.java.j2"
-    dest: "{{ basePackage }}/repository/{{entity.name}}Repository.java"
-- name: create controller directory
-  file:
-    path: '{{ basePackage }}/controller'
-    state: directory
-- name: write the Controller classes
-  loop: "{{ (domain.relations|selectattr('name','equalto','entities')|first).children|list  }}"
-  vars:
-    entity: "{{ item }}"
-    fields: "{{ (entity.relations|selectattr('name','equalto','fields')|first).children }}"
-  template:
-    src: "Controller.java.j2"
-    dest: "{{ basePackage }}/controller/{{entity.name}}Controller.java"
-- name: create resources directory
-  file:
-    path: '/target/src/main/resources'
-    state: directory
-- name: write the application.properties
-  template:
-    src: application.properties.j2
-    dest: '/target/src/main/resources/application.properties'
+- name: copy static files
+  copy:
+      src: "{{ item }}"
+      dest: /target
+      mode: 600
+  with_fileglob:
+      - "{{role_path}}/files/*"

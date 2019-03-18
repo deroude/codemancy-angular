@@ -1,5 +1,3 @@
-group: "{{ (project.attributes|selectattr('name','equalto','group')|first).value }}"
-artifact: "{{ (project.attributes|selectattr('name','equalto','artifact')|first).value }}"
 appName: "{{ (project.attributes|selectattr('name','equalto','name')|first).value }}"
 description: "{{ (project.attributes|selectattr('name','equalto','description')|first).value }}"
 author: "{{ (project.attributes|selectattr('name','equalto','author')|first).value }}"
