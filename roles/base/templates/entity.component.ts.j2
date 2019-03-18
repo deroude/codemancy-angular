@@ -1,0 +1,23 @@
+import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Page } from '../../domain/page';
+import { {{entity.name}} } from '../../domain/{{ entity.name|lower }}';
+import { {{entity.name}}Service } from '../../services/{{ entity.name|lower }}.service';
+
+@Component({
+  selector: 'app-{{entity.name|lower}}',
+  templateUrl: './{{entity.name|lower}}.component.html',
+  styleUrls: ['./{{entity.name|lower}}.component.scss']
+})
+export class {{entity.name}}Component implements OnInit {
+
+    constructor(private {{entity.name|lower}}Service: {{entity.name}}Service) {}
+
+    displayedColumns: string[] = [{% for field in fields %}'{{ field.name }}'{% if not loop.last %}, {% endif %}{% endfor %}]
+
+    dataSource$: Observable<Page<{{entity.name}}>>;
+
+    ngOnInit() {
+        this.dataSource$ = this.{{entity.name|lower}}Service.getAll(0);
+    }
+}

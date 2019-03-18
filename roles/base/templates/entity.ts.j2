@@ -1,0 +1,24 @@
+export interface {{ entity.name }} {
+    
+    {%- for field in fields %}
+    {% if field.attributes|selectattr("name","equalto","type")|selectattr("value","equalto","Date")|list|length > 0 %}
+    {{ field.name }}: Date;
+
+    {% elif field.attributes|selectattr("name","equalto","type")|selectattr("value","equalto","String")|list|length > 0 %}
+    {{ field.name }}: string;
+
+    {% elif field.attributes|selectattr("name","equalto","type")|selectattr("value","equalto","Integer")|list|length > 0 %}
+    {{ field.name }}: number;
+
+    {% elif field.attributes|selectattr("name","equalto","type")|selectattr("value","equalto","Double")|list|length > 0 %}
+    {{ field.name }}: number;
+
+    {% elif field.attributes|selectattr("name","equalto","type")|selectattr("value","equalto","Long")|list|length > 0 %}
+    {{ field.name }}: number;
+
+    {% elif field.attributes|selectattr("name","equalto","type")|selectattr("value","equalto","enumeration")|list|length > 0 %}
+    {{ field.name }}: {% for pv in (field.attributes|selectattr("name","equalto","enum")|first).possibleValues|list %}'{{pv}}'{% if not loop.last %}|{% endif %}{% endfor %};
+    {%- endif %}
+
+    {%- endfor %}
+}

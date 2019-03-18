@@ -2,3 +2,4 @@ appName: "{{ (project.attributes|selectattr('name','equalto','name')|first).valu
 description: "{{ (project.attributes|selectattr('name','equalto','description')|first).value }}"
 author: "{{ (project.attributes|selectattr('name','equalto','author')|first).value }}"
 domain: "{{ (project.relations|selectattr('name','equalto','features')|first).children|selectattr('name','equalto','domain')|first }}"
+entities: "{{ (domain.relations|selectattr('name','equalto','entities')|first).children|selectattr('category','equalto','DOMAIN_ENTITY')|list }}"

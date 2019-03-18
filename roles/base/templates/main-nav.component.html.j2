@@ -1,0 +1,17 @@
+<mat-toolbar color="primary">
+  <a mat-button href="/">
+{{ appName }}
+  </a>
+  <ng-container  *ngIf="(authService.token$|async)!==null">
+    {% for entity in entities %}
+    <a mat-button routerLink="{{ entity.name|lower }}" routerLinkActive="active">{{ entity.name }}</a>
+    {% endfor %}
+    </ng-container>
+     <span style="margin-left:auto"></span>
+     <ng-container  *ngIf="(authService.token$|async)===null; else logoutButton">
+      <button mat-button (click)="login()">Login</button>
+     </ng-container>
+     <ng-template #logoutButton>
+         <button mat-button (click)="logout()">Logout</button>
+     </ng-template>
+</mat-toolbar>

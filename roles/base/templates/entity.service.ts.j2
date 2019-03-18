@@ -1,0 +1,16 @@
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
+import { Observable } from 'rxjs';
+import { {{entity.name }} } from '../domain/{{ entity.name|lower }}';
+import { Page } from '../domain/page';
+
+@Injectable()
+export class {{ entity.name }}Service {
+
+  constructor(private http: HttpClient) { }
+
+  getAll(page: number): Observable<Page<{{ entity.name }}>> {
+      return this.http.get<Page<{{ entity.name }}>>(environment.apiUrl + '/{{entity.name|lower}}');
+  }
+}

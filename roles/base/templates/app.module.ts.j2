@@ -1,0 +1,50 @@
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { AppMaterialModule } from './app-material.module';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthService } from './services/auth.service';
+import { AuthInterceptor } from './services/auth.interceptor';
+import { MainNavComponent } from './components/main-nav/main-nav.component';
+import { LoginComponent } from './components/login/login.component';
+{% for entity in entities %}
+import { {{ entity.name }}Component } from './components/{{ entity.name|lower }}/{{ entity.name|lower }}.component';
+import { {{ entity.name }}Service } from './services/{{ entity.name|lower }}.service';
+{% endfor %}
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    MainNavComponent,
+    LoginComponent,
+    {%- for entity in entities %}
+    {{entity.name}}Component,
+    {%- endfor %}
+  ],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    AppRoutingModule,
+    AppMaterialModule,
+    HttpClientModule
+  ],
+  providers: [
+    AuthService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    },
+    {%- for entity in entities %}
+    {{entity.name}}Service,
+    {%- endfor %}
+  ],
+  bootstrap: [AppComponent],
+  entryComponents: [LoginComponent]
+})
+export class AppModule { }

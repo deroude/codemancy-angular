@@ -1,7 +1,61 @@
 - name: copy static files
   copy:
-      src: "{{ item }}"
+      src: "{{role_path}}/files/"
       dest: /target
-      mode: 600
-  with_fileglob:
-      - "{{role_path}}/files/*"
+- name: create domain interface for each entity
+  loop: "{{ entities }}"
+  vars:
+    entity: "{{ item }}"
+    fields: "{{ (entity.relations|selectattr('name','equalto','fields')|first).children|list }}"
+  template: 
+    src: "entity.ts.j2"
+    dest: "/target/src/app/domain/{{ entity.name|lower }}.ts"
+- name: create component directory for each entity
+  loop: "{{ entities }}"
+  file:
+    path: "/target/src/app/components/{{ item.name|lower }}"
+    state: directory
+- name: create component controller for each entity
+  loop: "{{ entities }}"
+  vars:
+    entity: "{{ item }}"
+    fields: "{{ (entity.relations|selectattr('name','equalto','fields')|first).children|list }}"
+  template: 
+    src: "entity.component.ts.j2"
+    dest: "/target/src/app/components/{{ item.name|lower }}/{{ item.name|lower }}.component.ts"
+- name: create component template for each entity
+  loop: "{{ entities }}"
+  vars:
+    entity: "{{ item }}"
+    fields: "{{ (entity.relations|selectattr('name','equalto','fields')|first).children|list }}"
+  template: 
+    src: "entity.component.html.j2"
+    dest: "/target/src/app/components/{{ item.name|lower }}/{{ item.name|lower }}.component.html"
+- name: create component stylesheet for each entity
+  loop: "{{ entities }}"
+  vars:
+    entity: "{{ item }}"
+    fields: "{{ (entity.relations|selectattr('name','equalto','fields')|first).children|list }}"
+  template: 
+    src: "entity.component.scss.j2"
+    dest: "/target/src/app/components/{{ item.name|lower }}/{{ item.name|lower }}.component.scss"
+- name: create service for each entity
+  loop: "{{ entities }}"
+  vars:
+    entity: "{{ item }}"
+    fields: "{{ (entity.relations|selectattr('name','equalto','fields')|first).children|list }}"
+  template: 
+    src: "entity.service.ts.j2"
+    dest: "/target/src/app/services/{{ item.name|lower }}.service.ts"
+- name: create app module
+  template: 
+    src: "app.module.ts.j2"
+    dest: "/target/src/app/app.module.ts"
+- name: create app routing module
+  template: 
+    src: "app-routing.module.ts.j2"
+    dest: "/target/src/app/app-routing.module.ts"
+- name: create main nav template
+  template: 
+    src: "main-nav.component.html.j2"
+    dest: "/target/src/app/components/main-nav/main-nav.component.html"
