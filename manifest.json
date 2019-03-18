@@ -1,0 +1,82 @@
+{
+  "name": "Root",
+  "category": "PROJECT_ROOT",
+  "description": "Spring Boot / MySQL project",
+  "access": 1,
+  "attributes": [
+    {
+      "name": "name",
+      "label": "Application Name",
+      "description": "The name of your application",
+      "access": 3,
+      "order": 1,
+      "type": "string",
+      "value": "MySpringBootMysqlApp"
+    },
+    {
+      "name": "group",
+      "label": "Package Group",
+      "description": "The package group holding your code",
+      "access": 3,
+      "order": 2,
+      "type": "string",
+      "value": "com.example"
+    },
+    {
+      "name": "artifact",
+      "label": "Artifact",
+      "description": "The artifact name that designates your application",
+      "access": 3,
+      "order": 3,
+      "type": "string",
+      "value": "app"
+    },
+    {
+      "name": "description",
+      "label": "Description",
+      "description": "A description of your application",
+      "type": "string",
+      "access": 3,
+      "order": 4,
+      "value": "Bob's Spring Boot MySQL backend"
+    },
+    {
+      "name": "version",
+      "label": "Version",
+      "description": "The version you want to start at",
+      "type": "string",
+      "access": 3,
+      "order": 5,
+      "value": "0.0.1"
+    },
+    {
+      "name": "author",
+      "label": "Author",
+      "description": "Your name",
+      "type": "string",
+      "access": 3,
+      "order": 6,
+      "value": "Bob"
+    }
+  ],
+  "relations": [
+    {
+      "name": "features",
+      "label": "Application features",
+      "description": "Your Spring Application features",
+      "preferredRender": "ACCORDION",
+      "access": 1,
+      "children":[
+        {
+          "source":{
+            "name":"domain",
+            "author":"codemancy"
+          },
+          "name": "domain",
+          "description": "The Domain of your Application",
+          "access": 1
+        }
+      ]
+    }
+  ]
+}

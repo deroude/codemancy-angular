@@ -1,0 +1,1 @@
+docker run --rm -it -v my/staging/spring-mysql:/ansible/playbooks -v my/staging/spring-mysql-target:/target factory/ansible-playbook spell.yml

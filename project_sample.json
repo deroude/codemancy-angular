@@ -1,0 +1,729 @@
+{
+    "name": "Root",
+    "description": "Spring Boot / MySQL project",
+    "category": "PROJECT_ROOT",
+    "relations": [
+        {
+            "label": "Application features",
+            "name": "features",
+            "preferredRender": "ACCORDION",
+            "description": "Your Spring Application features",
+            "children": [
+                {
+                    "name": "domain",
+                    "description": "The application model",
+                    "category": "DOMAIN",
+                    "relations": [
+                        {
+                            "label": "Domain Entities",
+                            "name": "entities",
+                            "preferredRender": "ACCORDION",
+                            "description": "The entities in the application model",
+                            "access": 3,
+                            "children": [
+                                {
+                                    "name": "User",
+                                    "description": "A blog user",
+                                    "category": "DOMAIN_ENTITY",
+                                    "relations": [
+                                        {
+                                            "label": "Fields",
+                                            "name": "fields",
+                                            "preferredRender": "TABLE",
+                                            "description": "The fields (or columns) in this Entity",
+                                            "access": 5,
+                                            "children": [
+                                                {
+                                                    "name": "id",
+                                                    "description": "An Entity unique ID",
+                                                    "category": "DOMAIN_ENTITY_FIELD",
+                                                    "attributes": [
+                                                        {
+                                                            "name": "fk",
+                                                            "label": "Foreign Key",
+                                                            "description": "The FK reference",
+                                                            "order": 2,
+                                                            "value": "None",
+                                                            "type": "string",
+                                                            "access": 0
+                                                        },
+                                                        {
+                                                            "name": "generated",
+                                                            "label": "Generated field",
+                                                            "description": "Is this field auto-generated?",
+                                                            "order": 5,
+                                                            "value": "true",
+                                                            "type": "boolean",
+                                                            "access": 0
+                                                        },
+                                                        {
+                                                            "name": "optional",
+                                                            "label": "Optional",
+                                                            "description": "Is this field optional?",
+                                                            "order": 8,
+                                                            "value": "false",
+                                                            "type": "boolean",
+                                                            "access": 0
+                                                        },
+                                                        {
+                                                            "name": "id",
+                                                            "label": "Id field",
+                                                            "description": "Is this field the unique id?",
+                                                            "order": 4,
+                                                            "value": "true",
+                                                            "type": "boolean",
+                                                            "access": 0
+                                                        },
+                                                        {
+                                                            "name": "type",
+                                                            "label": "Field type",
+                                                            "description": "The field type",
+                                                            "order": 1,
+                                                            "value": "Long",
+                                                            "type": "type",
+                                                            "access": 1
+                                                        },
+                                                        {
+                                                            "name": "enum",
+                                                            "label": "Enumeration",
+                                                            "description": "Enumeration values for this field",
+                                                            "order": 3,
+                                                            "value": "false",
+                                                            "type": "enumeration",
+                                                            "access": 0
+                                                        },
+                                                        {
+                                                            "name": "basic",
+                                                            "label": "Basic",
+                                                            "description": "Is this field basic (i.e.) not a foreign key?",
+                                                            "order": 6,
+                                                            "value": "false",
+                                                            "type": "boolean",
+                                                            "access": 0
+                                                        }
+                                                    ],
+                                                    "access": 3
+                                                },
+                                                {
+                                                    "name": "email",
+                                                    "description": "A Basic Entity Field (or column)",
+                                                    "category": "DOMAIN_ENTITY_FIELD",
+                                                    "attributes": [
+                                                        {
+                                                            "name": "fk",
+                                                            "label": "Foreign Key",
+                                                            "description": "The FK reference",
+                                                            "order": 2,
+                                                            "value": "None",
+                                                            "type": "string",
+                                                            "access": 0
+                                                        },
+                                                        {
+                                                            "name": "generated",
+                                                            "label": "Generated field",
+                                                            "description": "Is this field auto-generated?",
+                                                            "order": 5,
+                                                            "value": "false",
+                                                            "type": "boolean",
+                                                            "access": 0
+                                                        },
+                                                        {
+                                                            "name": "optional",
+                                                            "label": "Optional",
+                                                            "description": "Is this field optional?",
+                                                            "order": 8,
+                                                            "value": false,
+                                                            "type": "boolean",
+                                                            "access": 3
+                                                        },
+                                                        {
+                                                            "name": "id",
+                                                            "label": "Id field",
+                                                            "description": "Is this field the unique id?",
+                                                            "order": 4,
+                                                            "value": "false",
+                                                            "type": "boolean",
+                                                            "access": 0
+                                                        },
+                                                        {
+                                                            "name": "type",
+                                                            "label": "Field type",
+                                                            "description": "The field type",
+                                                            "order": 1,
+                                                            "value": "String",
+                                                            "type": "type",
+                                                            "access": 3,
+                                                            "possibleValues": [
+                                                                "Integer",
+                                                                "String",
+                                                                "Boolean",
+                                                                "Double",
+                                                                "Date"
+                                                            ]
+                                                        },
+                                                        {
+                                                            "name": "enum",
+                                                            "label": "Enumeration",
+                                                            "description": "Enumeration values for this field",
+                                                            "order": 3,
+                                                            "value": "false",
+                                                            "type": "enumeration",
+                                                            "access": 0
+                                                        },
+                                                        {
+                                                            "name": "basic",
+                                                            "label": "Basic",
+                                                            "description": "Is this field basic (i.e.) not a foreign key?",
+                                                            "order": 6,
+                                                            "value": "true",
+                                                            "type": "boolean",
+                                                            "access": 0
+                                                        }
+                                                    ],
+                                                    "access": 3
+                                                },
+                                                {
+                                                    "name": "status",
+                                                    "description": "An Enumeration",
+                                                    "category": "DOMAIN_ENTITY_FIELD",
+                                                    "attributes": [
+                                                        {
+                                                            "name": "fk",
+                                                            "label": "Foreign Key",
+                                                            "description": "The FK reference",
+                                                            "order": 2,
+                                                            "value": "None",
+                                                            "type": "string",
+                                                            "access": 0
+                                                        },
+                                                        {
+                                                            "name": "generated",
+                                                            "label": "Generated field",
+                                                            "description": "Is this field auto-generated?",
+                                                            "order": 5,
+                                                            "value": "false",
+                                                            "type": "boolean",
+                                                            "access": 0
+                                                        },
+                                                        {
+                                                            "name": "optional",
+                                                            "label": "Optional",
+                                                            "description": "Is this field optional?",
+                                                            "order": 8,
+                                                            "value": false,
+                                                            "type": "boolean",
+                                                            "access": 3
+                                                        },
+                                                        {
+                                                            "name": "id",
+                                                            "label": "Id field",
+                                                            "description": "Is this field the unique id?",
+                                                            "order": 4,
+                                                            "value": "false",
+                                                            "type": "boolean",
+                                                            "access": 0
+                                                        },
+                                                        {
+                                                            "name": "type",
+                                                            "label": "Field type",
+                                                            "description": "The field type",
+                                                            "order": 1,
+                                                            "value": "enumeration",
+                                                            "type": "type",
+                                                            "access": 0
+                                                        },
+                                                        {
+                                                            "name": "enum",
+                                                            "label": "Enumeration",
+                                                            "description": "Enumeration values for this field",
+                                                            "order": 3,
+                                                            "value": "true",
+                                                            "type": "enumeration",
+                                                            "access": 0,
+                                                            "possibleValues": [
+                                                                "VALUE1",
+                                                                "VALUE2"
+                                                            ]
+                                                        },
+                                                        {
+                                                            "name": "basic",
+                                                            "label": "Basic",
+                                                            "description": "Is this field basic (i.e.) not a foreign key?",
+                                                            "order": 6,
+                                                            "value": "true",
+                                                            "type": "boolean",
+                                                            "access": 0
+                                                        }
+                                                    ],
+                                                    "access": 3
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "access": 3
+                                },
+                                {
+                                    "name": "Article",
+                                    "description": "A blog article",
+                                    "category": "DOMAIN_ENTITY",
+                                    "relations": [
+                                        {
+                                            "label": "Fields",
+                                            "name": "fields",
+                                            "preferredRender": "TABLE",
+                                            "description": "The fields (or columns) in this Entity",
+                                            "access": 5,
+                                            "children": [
+                                                {
+                                                    "name": "id",
+                                                    "description": "An Entity unique ID",
+                                                    "category": "DOMAIN_ENTITY_FIELD",
+                                                    "attributes": [
+                                                        {
+                                                            "name": "fk",
+                                                            "label": "Foreign Key",
+                                                            "description": "The FK reference",
+                                                            "order": 2,
+                                                            "value": "None",
+                                                            "type": "string",
+                                                            "access": 0
+                                                        },
+                                                        {
+                                                            "name": "generated",
+                                                            "label": "Generated field",
+                                                            "description": "Is this field auto-generated?",
+                                                            "order": 5,
+                                                            "value": "true",
+                                                            "type": "boolean",
+                                                            "access": 0
+                                                        },
+                                                        {
+                                                            "name": "optional",
+                                                            "label": "Optional",
+                                                            "description": "Is this field optional?",
+                                                            "order": 8,
+                                                            "value": "false",
+                                                            "type": "boolean",
+                                                            "access": 0
+                                                        },
+                                                        {
+                                                            "name": "id",
+                                                            "label": "Id field",
+                                                            "description": "Is this field the unique id?",
+                                                            "order": 4,
+                                                            "value": "true",
+                                                            "type": "boolean",
+                                                            "access": 0
+                                                        },
+                                                        {
+                                                            "name": "type",
+                                                            "label": "Field type",
+                                                            "description": "The field type",
+                                                            "order": 1,
+                                                            "value": "Long",
+                                                            "type": "type",
+                                                            "access": 1
+                                                        },
+                                                        {
+                                                            "name": "enum",
+                                                            "label": "Enumeration",
+                                                            "description": "Enumeration values for this field",
+                                                            "order": 3,
+                                                            "value": "false",
+                                                            "type": "enumeration",
+                                                            "access": 0
+                                                        },
+                                                        {
+                                                            "name": "basic",
+                                                            "label": "Basic",
+                                                            "description": "Is this field basic (i.e.) not a foreign key?",
+                                                            "order": 6,
+                                                            "value": "false",
+                                                            "type": "boolean",
+                                                            "access": 0
+                                                        }
+                                                    ],
+                                                    "access": 3
+                                                },
+                                                {
+                                                    "name": "author",
+                                                    "description": "A reference to another Entity",
+                                                    "category": "DOMAIN_ENTITY_FIELD",
+                                                    "attributes": [
+                                                        {
+                                                            "name": "fk",
+                                                            "label": "Foreign Key",
+                                                            "description": "The FK reference",
+                                                            "order": 2,
+                                                            "value": "ManyToOne",
+                                                            "type": "string",
+                                                            "access": 3,
+                                                            "possibleValues": [
+                                                                "OneToMany",
+                                                                "ManyToOne"
+                                                            ]
+                                                        },
+                                                        {
+                                                            "name": "generated",
+                                                            "label": "Generated field",
+                                                            "description": "Is this field auto-generated?",
+                                                            "order": 5,
+                                                            "value": "false",
+                                                            "type": "boolean",
+                                                            "access": 0
+                                                        },
+                                                        {
+                                                            "name": "optional",
+                                                            "label": "Optional",
+                                                            "description": "Is this field optional?",
+                                                            "order": 8,
+                                                            "value": "false",
+                                                            "type": "boolean",
+                                                            "access": 3
+                                                        },
+                                                        {
+                                                            "name": "id",
+                                                            "label": "Id field",
+                                                            "description": "Is this field the unique id?",
+                                                            "order": 4,
+                                                            "value": "false",
+                                                            "type": "boolean",
+                                                            "access": 0
+                                                        },
+                                                        {
+                                                            "name": "type",
+                                                            "label": "Field type",
+                                                            "description": "The field type",
+                                                            "order": 1,
+                                                            "value": "User",
+                                                            "type": "type",
+                                                            "access": 3,
+                                                            "possibleValuesReference": "entities"
+                                                        },
+                                                        {
+                                                            "name": "enum",
+                                                            "label": "Enumeration",
+                                                            "description": "Enumeration values for this field",
+                                                            "order": 3,
+                                                            "value": "false",
+                                                            "type": "enumeration",
+                                                            "access": 0
+                                                        },
+                                                        {
+                                                            "name": "basic",
+                                                            "label": "Basic",
+                                                            "description": "Is this field basic (i.e.) not a foreign key?",
+                                                            "order": 6,
+                                                            "value": "false",
+                                                            "type": "boolean",
+                                                            "access": 0
+                                                        }
+                                                    ],
+                                                    "access": 3
+                                                },
+                                                {
+                                                    "name": "title",
+                                                    "description": "A Basic Entity Field (or column)",
+                                                    "category": "DOMAIN_ENTITY_FIELD",
+                                                    "attributes": [
+                                                        {
+                                                            "name": "fk",
+                                                            "label": "Foreign Key",
+                                                            "description": "The FK reference",
+                                                            "order": 2,
+                                                            "value": "None",
+                                                            "type": "string",
+                                                            "access": 0
+                                                        },
+                                                        {
+                                                            "name": "generated",
+                                                            "label": "Generated field",
+                                                            "description": "Is this field auto-generated?",
+                                                            "order": 5,
+                                                            "value": "false",
+                                                            "type": "boolean",
+                                                            "access": 0
+                                                        },
+                                                        {
+                                                            "name": "optional",
+                                                            "label": "Optional",
+                                                            "description": "Is this field optional?",
+                                                            "order": 8,
+                                                            "value": false,
+                                                            "type": "boolean",
+                                                            "access": 3
+                                                        },
+                                                        {
+                                                            "name": "id",
+                                                            "label": "Id field",
+                                                            "description": "Is this field the unique id?",
+                                                            "order": 4,
+                                                            "value": "false",
+                                                            "type": "boolean",
+                                                            "access": 0
+                                                        },
+                                                        {
+                                                            "name": "type",
+                                                            "label": "Field type",
+                                                            "description": "The field type",
+                                                            "order": 1,
+                                                            "value": "String",
+                                                            "type": "type",
+                                                            "access": 3,
+                                                            "possibleValues": [
+                                                                "Integer",
+                                                                "String",
+                                                                "Boolean",
+                                                                "Double",
+                                                                "Date"
+                                                            ]
+                                                        },
+                                                        {
+                                                            "name": "enum",
+                                                            "label": "Enumeration",
+                                                            "description": "Enumeration values for this field",
+                                                            "order": 3,
+                                                            "value": "false",
+                                                            "type": "enumeration",
+                                                            "access": 0
+                                                        },
+                                                        {
+                                                            "name": "basic",
+                                                            "label": "Basic",
+                                                            "description": "Is this field basic (i.e.) not a foreign key?",
+                                                            "order": 6,
+                                                            "value": "true",
+                                                            "type": "boolean",
+                                                            "access": 0
+                                                        }
+                                                    ],
+                                                    "access": 3
+                                                },
+                                                {
+                                                    "name": "text",
+                                                    "description": "A Basic Entity Field (or column)",
+                                                    "category": "DOMAIN_ENTITY_FIELD",
+                                                    "attributes": [
+                                                        {
+                                                            "name": "fk",
+                                                            "label": "Foreign Key",
+                                                            "description": "The FK reference",
+                                                            "order": 2,
+                                                            "value": "None",
+                                                            "type": "string",
+                                                            "access": 0
+                                                        },
+                                                        {
+                                                            "name": "generated",
+                                                            "label": "Generated field",
+                                                            "description": "Is this field auto-generated?",
+                                                            "order": 5,
+                                                            "value": "false",
+                                                            "type": "boolean",
+                                                            "access": 0
+                                                        },
+                                                        {
+                                                            "name": "optional",
+                                                            "label": "Optional",
+                                                            "description": "Is this field optional?",
+                                                            "order": 8,
+                                                            "value": false,
+                                                            "type": "boolean",
+                                                            "access": 3
+                                                        },
+                                                        {
+                                                            "name": "id",
+                                                            "label": "Id field",
+                                                            "description": "Is this field the unique id?",
+                                                            "order": 4,
+                                                            "value": "false",
+                                                            "type": "boolean",
+                                                            "access": 0
+                                                        },
+                                                        {
+                                                            "name": "type",
+                                                            "label": "Field type",
+                                                            "description": "The field type",
+                                                            "order": 1,
+                                                            "value": "String",
+                                                            "type": "type",
+                                                            "access": 3,
+                                                            "possibleValues": [
+                                                                "Integer",
+                                                                "String",
+                                                                "Boolean",
+                                                                "Double",
+                                                                "Date"
+                                                            ]
+                                                        },
+                                                        {
+                                                            "name": "enum",
+                                                            "label": "Enumeration",
+                                                            "description": "Enumeration values for this field",
+                                                            "order": 3,
+                                                            "value": "false",
+                                                            "type": "enumeration",
+                                                            "access": 0
+                                                        },
+                                                        {
+                                                            "name": "basic",
+                                                            "label": "Basic",
+                                                            "description": "Is this field basic (i.e.) not a foreign key?",
+                                                            "order": 6,
+                                                            "value": "true",
+                                                            "type": "boolean",
+                                                            "access": 0
+                                                        }
+                                                    ],
+                                                    "access": 3
+                                                },
+                                                {
+                                                    "name": "published",
+                                                    "description": "A Basic Entity Field (or column)",
+                                                    "category": "DOMAIN_ENTITY_FIELD",
+                                                    "attributes": [
+                                                        {
+                                                            "name": "fk",
+                                                            "label": "Foreign Key",
+                                                            "description": "The FK reference",
+                                                            "order": 2,
+                                                            "value": "None",
+                                                            "type": "string",
+                                                            "access": 0
+                                                        },
+                                                        {
+                                                            "name": "generated",
+                                                            "label": "Generated field",
+                                                            "description": "Is this field auto-generated?",
+                                                            "order": 5,
+                                                            "value": "false",
+                                                            "type": "boolean",
+                                                            "access": 0
+                                                        },
+                                                        {
+                                                            "name": "optional",
+                                                            "label": "Optional",
+                                                            "description": "Is this field optional?",
+                                                            "order": 8,
+                                                            "value": false,
+                                                            "type": "boolean",
+                                                            "access": 3
+                                                        },
+                                                        {
+                                                            "name": "id",
+                                                            "label": "Id field",
+                                                            "description": "Is this field the unique id?",
+                                                            "order": 4,
+                                                            "value": "false",
+                                                            "type": "boolean",
+                                                            "access": 0
+                                                        },
+                                                        {
+                                                            "name": "type",
+                                                            "label": "Field type",
+                                                            "description": "The field type",
+                                                            "order": 1,
+                                                            "value": "String",
+                                                            "type": "type",
+                                                            "access": 3,
+                                                            "possibleValues": [
+                                                                "Integer",
+                                                                "String",
+                                                                "Boolean",
+                                                                "Double",
+                                                                "Date"
+                                                            ]
+                                                        },
+                                                        {
+                                                            "name": "enum",
+                                                            "label": "Enumeration",
+                                                            "description": "Enumeration values for this field",
+                                                            "order": 3,
+                                                            "value": "false",
+                                                            "type": "enumeration",
+                                                            "access": 0
+                                                        },
+                                                        {
+                                                            "name": "basic",
+                                                            "label": "Basic",
+                                                            "description": "Is this field basic (i.e.) not a foreign key?",
+                                                            "order": 6,
+                                                            "value": "true",
+                                                            "type": "boolean",
+                                                            "access": 0
+                                                        }
+                                                    ],
+                                                    "access": 3
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "access": 3
+                                }
+                            ]
+                        }
+                    ],
+                    "access": 1
+                }
+            ],
+            "access": 1
+        }
+    ],
+    "attributes": [
+        {
+            "name": "version",
+            "label": "Version",
+            "description": "The version you want to start at",
+            "order": 5,
+            "value": "0.0.1",
+            "type": "string",
+            "access": 3
+        },
+        {
+            "name": "artifact",
+            "label": "Artifact",
+            "description": "The artifact name that designates your application",
+            "order": 3,
+            "value": "app",
+            "type": "string",
+            "access": 3
+        },
+        {
+            "name": "author",
+            "label": "Author",
+            "description": "Your name",
+            "order": 6,
+            "value": "Bob",
+            "type": "string",
+            "access": 3
+        },
+        {
+            "name": "name",
+            "label": "Application Name",
+            "description": "The name of your application",
+            "order": 1,
+            "value": "MySpringBootMysqlApp",
+            "type": "string",
+            "access": 3
+        },
+        {
+            "name": "group",
+            "label": "Package Group",
+            "description": "The package group holding your code",
+            "order": 2,
+            "value": "com.example",
+            "type": "string",
+            "access": 3
+        },
+        {
+            "name": "description",
+            "label": "Description",
+            "description": "A description of your application",
+            "order": 4,
+            "value": "Bob's Spring Boot MySQL backend",
+            "type": "string",
+            "access": 3
+        }
+    ],
+    "access": 1
+}

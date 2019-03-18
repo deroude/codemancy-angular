@@ -1,0 +1,1 @@
+basePackage: /target/src/main/java/{{ group| regex_replace('\.','/')}}/{{artifact}}
