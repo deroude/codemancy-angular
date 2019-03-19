@@ -13,4 +13,12 @@ export class {{ entity.name }}Service {
   getAll(page: number): Observable<Page<{{ entity.name }}>> {
       return this.http.get<Page<{{ entity.name }}>>(environment.apiUrl + '/{{entity.name|lower}}');
   }
+
+  add({{ entity.name|lower }}:{{ entity.name }}) {
+    return this.http.post<{{ entity.name }}>(environment.apiUrl + '/{{ entity.name|lower }}', {{ entity.name|lower }});
+  }
+
+  update({{ entity.name|lower }}:{{ entity.name }}) {
+    return this.http.put<{{ entity.name }}>(environment.apiUrl + '/{{ entity.name|lower }}', {{ entity.name|lower }});
+  }
 }

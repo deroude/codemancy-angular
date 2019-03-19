@@ -39,6 +39,30 @@
   template: 
     src: "entity.component.scss.j2"
     dest: "/target/src/app/components/{{ item.name|lower }}/{{ item.name|lower }}.component.scss"
+- name: create component editor controller for each entity
+  loop: "{{ entities }}"
+  vars:
+    entity: "{{ item }}"
+    fields: "{{ (entity.relations|selectattr('name','equalto','fields')|first).children|list }}"
+  template: 
+    src: "entity.editor.component.ts.j2"
+    dest: "/target/src/app/components/{{ item.name|lower }}/{{ item.name|lower }}.editor.component.ts"
+- name: create component editor template for each entity
+  loop: "{{ entities }}"
+  vars:
+    entity: "{{ item }}"
+    fields: "{{ (entity.relations|selectattr('name','equalto','fields')|first).children|list }}"
+  template: 
+    src: "entity.editor.component.html.j2"
+    dest: "/target/src/app/components/{{ item.name|lower }}/{{ item.name|lower }}.editor.component.html"
+- name: create component editor stylesheet for each entity
+  loop: "{{ entities }}"
+  vars:
+    entity: "{{ item }}"
+    fields: "{{ (entity.relations|selectattr('name','equalto','fields')|first).children|list }}"
+  template: 
+    src: "entity.editor.component.scss.j2"
+    dest: "/target/src/app/components/{{ item.name|lower }}/{{ item.name|lower }}.editor.component.scss"
 - name: create service for each entity
   loop: "{{ entities }}"
   vars:

@@ -12,6 +12,7 @@ import { MainNavComponent } from './components/main-nav/main-nav.component';
 import { LoginComponent } from './components/login/login.component';
 {% for entity in entities %}
 import { {{ entity.name }}Component } from './components/{{ entity.name|lower }}/{{ entity.name|lower }}.component';
+import { {{ entity.name }}EditorComponent } from './components/{{ entity.name|lower }}/{{ entity.name|lower }}.editor.component';
 import { {{ entity.name }}Service } from './services/{{ entity.name|lower }}.service';
 {% endfor %}
 
@@ -22,6 +23,7 @@ import { {{ entity.name }}Service } from './services/{{ entity.name|lower }}.ser
     LoginComponent,
     {%- for entity in entities %}
     {{entity.name}}Component,
+    {{entity.name}}EditorComponent,
     {%- endfor %}
   ],
   imports: [
@@ -45,6 +47,11 @@ import { {{ entity.name }}Service } from './services/{{ entity.name|lower }}.ser
     {%- endfor %}
   ],
   bootstrap: [AppComponent],
-  entryComponents: [LoginComponent]
+  entryComponents: [
+    LoginComponent,
+    {%- for entity in entities %}
+    {{entity.name}}EditorComponent,
+    {%- endfor %}
+    ]
 })
 export class AppModule { }

@@ -1,4 +1,7 @@
-<table mat-table [dataSource]="dataSource$|async" class="mat-elevation-z8">
+<mat-toolbar>
+  <button mat-button (click)="add()">Add</button>
+</mat-toolbar>
+<table mat-table [dataSource]="(dataSource$|async)?.content" class="mat-elevation-z8">
 
 {% for field in fields %}
   <ng-container matColumnDef="{{ field.name }}">

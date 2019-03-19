@@ -1,0 +1,47 @@
+<h1 mat-dialog-title>{{ entity.name }}</h1>
+<div mat-dialog-content>
+  {%- for field in fields %}
+    {% if field.attributes|selectattr("name","equalto","type")|selectattr("value","equalto","Date")|list|length > 0 %}
+    <mat-form-field>
+      <input matInput [matDatepicker]="picker" placeholder="{{ field.name|capitalize }}" [(ngModel)]="data.{{ field.name }}">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    {% elif field.attributes|selectattr("name","equalto","type")|selectattr("value","equalto","String")|list|length > 0 %}
+    <mat-form-field>
+      <input matInput placeholder="{{ field.name|capitalize }}" [(ngModel)]="data.{{ field.name }}">
+    </mat-form-field>
+
+    {% elif field.attributes|selectattr("name","equalto","type")|selectattr("value","equalto","Integer")|list|length > 0 %}
+    <mat-form-field>
+      <input matInput type="number" placeholder="{{ field.name|capitalize }}" [(ngModel)]="data.{{ field.name }}">
+    </mat-form-field>
+
+    {% elif field.attributes|selectattr("name","equalto","type")|selectattr("value","equalto","Double")|list|length > 0 %}
+    <mat-form-field>
+      <input matInput type="number" placeholder="{{ field.name|capitalize }}" [(ngModel)]="data.{{ field.name }}">
+    </mat-form-field>
+
+    {% elif field.attributes|selectattr("name","equalto","type")|selectattr("value","equalto","Long")|list|length > 0 %}
+    <mat-form-field>
+      <input matInput type="number" placeholder="{{ field.name|capitalize }}" [(ngModel)]="data.{{ field.name }}">
+    </mat-form-field>
+
+    {% elif field.attributes|selectattr("name","equalto","type")|selectattr("value","equalto","enumeration")|list|length > 0 %}
+    <mat-form-field>
+      <mat-label>{{ field.name|capitalize }}</mat-label>
+      <mat-select [(value)]="data.{{ field.name }}">
+        {%- for pv in (field.attributes|selectattr("name","equalto","enum")|first).possibleValues|list %}
+        <mat-option>pv</mat-option>
+        {%- endfor %}
+      </mat-select>
+    </mat-form-field>
+    {%- endif %}
+
+    {%- endfor %}
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-button (click)="onSave()" cdkFocusInitial>Save</button>
+</div>

@@ -1,0 +1,37 @@
+import { Component, OnInit, Inject } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import { {{ entity.name }} } from '../../domain/{{ entity.name|lower }}';
+import { {{ entity.name }}Service } from '../../services/{{ entity.name|lower }}.service';
+
+@Component({
+  selector: 'app-{{ entity.name|lower }}-editor',
+  templateUrl: './{{ entity.name|lower }}.editor.component.html',
+  styleUrls: ['./{{ entity.name|lower }}.editor.component.scss']
+})
+export class {{ entity.name }}EditorComponent implements OnInit {
+
+    private {{ entity.name|lower }}: {{ entity.name }};
+
+    constructor(
+      public dialogRef: MatDialogRef<{{ entity.name }}EditorComponent>,
+      private {{ entity.name|lower }}Service: {{ entity.name }}Service,
+      @Inject(MAT_DIALOG_DATA) public data: {{ entity.name }}
+    ) {}
+
+    ngOnInit() {
+    }
+
+    onCancel(): void {
+      this.dialogRef.close();
+    }
+
+    onSave(): void {
+      if (this.data.id) {
+        this.{{ entity.name|lower }}Service.update(this.data)
+          .subscribe(() => this.dialogRef.close());
+      } else {
+        this.{{ entity.name|lower }}Service.add(this.data)
+          .subscribe(() => this.dialogRef.close());
+      }
+  }
+}
