@@ -20,7 +20,7 @@ export class {{ entity.name }}Component implements OnInit {
     dataSource$: Observable<Page<{{ entity.name }}>>;
 
     ngOnInit() {
-        this.dataSource$ = this.{{ entity.name|lower }}Service.getAll(0);
+        this.dataSource$ = this.{{ entity.name|lower }}Service.getAll();
     }
 
     add() {

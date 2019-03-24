@@ -10,7 +10,7 @@ export class {{ entity.name }}Service {
 
   constructor(private http: HttpClient) { }
 
-  getAll(page: number): Observable<Page<{{ entity.name }}>> {
+  getAll(): Observable<Page<{{ entity.name }}>> {
       return this.http.get<Page<{{ entity.name }}>>(environment.apiUrl + '/{{entity.name|lower}}');
   }
 
