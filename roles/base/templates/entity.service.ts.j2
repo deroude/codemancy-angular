@@ -10,8 +10,8 @@ export class {{ entity.name }}Service {
 
   constructor(private http: HttpClient) { }
 
-  getAll(): Observable<Page<{{ entity.name }}>> {
-      return this.http.get<Page<{{ entity.name }}>>(environment.apiUrl + '/{{entity.name|lower}}');
+  getAll(search: string): Observable<Page<{{ entity.name }}>> {
+      return this.http.get<Page<{{ entity.name }}>>(environment.apiUrl + '/{{entity.name|lower}}',{params: {search: search}});
   }
 
   add({{ entity.name|lower }}:{{ entity.name }}) {
