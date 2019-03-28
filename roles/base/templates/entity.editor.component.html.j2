@@ -34,7 +34,7 @@
       <mat-label>{{ field.name|capitalize }}</mat-label>
       <mat-select [(value)]="data.{{ field.name }}">
         {%- for pv in (field.attributes|selectattr("name","equalto","enum")|first).possibleValues|list %}
-        <mat-option>{{ pv }}</mat-option>
+        <mat-option value='{{pv}}'>{{ pv }}</mat-option>
         {%- endfor %}
       </mat-select>
     </mat-form-field>
