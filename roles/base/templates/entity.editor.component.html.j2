@@ -49,9 +49,9 @@
       <input type="text" matInput [(ngModel)]="data.{{ field.name }}" [matAutocomplete]="auto_{{ fkDisplayField.name }}" 
         placeholder="{{ field.name|capitalize }}" (change)="load{{ fkEntity.name }}($event.target.value)">
     </mat-form-field>
-    <mat-autocomplete #auto_{{ fkDisplayField.name }}="matAutocomplete">
+    <mat-autocomplete #auto_{{ fkDisplayField.name }}="matAutocomplete" [displayWith]="display{{ fkEntityName }}{{fkDisplayField.name|capitalize}}">
       <mat-option *ngFor="let v of {{ fkEntity.name|lower }}$|async" 
-        [value]="v.id">{{ "{{" }}v.{{ fkDisplayField.name }} {{ "}}" }}</mat-option>
+        [value]="v">{{ "{{" }}v.{{ fkDisplayField.name }} {{ "}}" }}</mat-option>
     </mat-autocomplete>
     {%- endfor %}
     {%- endif %}
