@@ -52,7 +52,8 @@
         {
           "source":{
             "name":"domain",
-            "author":"codemancy"
+            "author":"codemancy",
+            "version":"LATEST"
           },
           "name": "domain",
           "description": "The Domain of your Application",
