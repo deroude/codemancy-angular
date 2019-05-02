@@ -4,10 +4,29 @@
 <table mat-table [dataSource]="(dataSource$|async)?.content" class="mat-elevation-z8">
 
 {% for field in fields %}
+{% if field.attributes|selectattr("name","equalto","fk")|selectattr("value","equalto","ManyToOne")|list|length > 0 %}
+    {%- if entities|selectattr("name","equalto",(field.attributes|selectattr("name","equalto","type")|first).value)|list|length>0 %}
+      {%- set fkEntityName=(field.attributes|selectattr("name","equalto","type")|first).value %}
+      {%- set fkEntity=entities|selectattr("name","equalto", fkEntityName)|first %}
+      {%- set fkFields=(fkEntity.relations|selectattr("name","equalto","fields")|first).children|list %}
+      {%- for fkDisplayField in fkFields if fkDisplayField.attributes|selectattr("name","equalto","display")|selectattr("value","equalto","true")|list|length>0%}
+  <ng-container matColumnDef="{{ field.name }}">
+    <th mat-header-cell *matHeaderCellDef> {{ field.name|capitalize }} </th>
+    <td mat-cell *matCellDef="let element"> {{'{{'}}element.{{ field.name }}.{{ fkDisplayField.name }}{{'}}'}} </td>
+  </ng-container>
+    {%- endfor %}
+  {%- endif %}
+{% elif field.attributes|selectattr("name","equalto","type")|selectattr("value","equalto","Date")|list|length > 0 %}
+  <ng-container matColumnDef="{{ field.name }}">
+    <th mat-header-cell *matHeaderCellDef> {{ field.name|capitalize }} </th>
+    <td mat-cell *matCellDef="let element"> {{'{{'}}element.{{ field.name }}|date{{'}}'}} </td>
+  </ng-container>
+{% else %}
   <ng-container matColumnDef="{{ field.name }}">
     <th mat-header-cell *matHeaderCellDef> {{ field.name|capitalize }} </th>
     <td mat-cell *matCellDef="let element"> {{'{{'}}element.{{ field.name }}{{'}}'}} </td>
   </ng-container>
+{% endif %}
 {% endfor %}
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

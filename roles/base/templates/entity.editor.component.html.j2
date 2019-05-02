@@ -1,6 +1,7 @@
 <h1 mat-dialog-title>{{ entity.name }}</h1>
 <div mat-dialog-content>
   {%- for field in fields %}
+  {%- if field.attributes|selectattr("name","equalto","generated")|selectattr("value","equalto","true")|list|length == 0 %}
     {% if field.attributes|selectattr("name","equalto","type")|selectattr("value","equalto","Date")|list|length > 0 %}
     <mat-form-field>
       <input matInput [matDatepicker]="picker" placeholder="{{ field.name|capitalize }}" [(ngModel)]="data.{{ field.name }}">
@@ -33,20 +34,29 @@
       <mat-label>{{ field.name|capitalize }}</mat-label>
       <mat-select [(value)]="data.{{ field.name }}">
         {%- for pv in (field.attributes|selectattr("name","equalto","enum")|first).possibleValues|list %}
-        <mat-option>{{ pv }}</mat-option>
+        <mat-option value='{{pv}}'>{{ pv }}</mat-option>
         {%- endfor %}
       </mat-select>
     </mat-form-field>
 
     {% elif field.attributes|selectattr("name","equalto","fk")|selectattr("value","equalto","ManyToOne")|list|length > 0 %}
+    {%- if entities|selectattr("name","equalto",(field.attributes|selectattr("name","equalto","type")|first).value)|list|length>0 %}
+      {%- set fkEntityName=(field.attributes|selectattr("name","equalto","type")|first).value %}
+      {%- set fkEntity=entities|selectattr("name","equalto", fkEntityName)|first %}
+      {%- set fkFields=(fkEntity.relations|selectattr("name","equalto","fields")|first).children|list %}
+      {%- for fkDisplayField in fkFields if fkDisplayField.attributes|selectattr("name","equalto","display")|selectattr("value","equalto","true")|list|length>0%}
     <mat-form-field>
-      <mat-label>{{ field.name|capitalize }}</mat-label>
-      <mat-select [(value)]="data.{{ field.name }}">
-        <mat-option *ngFor="let v of {{ field.name|lower }}$|async" [value]="v">{{ '{{' }}v.name{{ '}}' }}</mat-option>
-      </mat-select>
+      <input type="text" matInput [(ngModel)]="data.{{ field.name }}" [matAutocomplete]="auto_{{ fkDisplayField.name }}" 
+        placeholder="{{ field.name|capitalize }}" (change)="load{{ fkEntity.name }}($event.target.value)">
     </mat-form-field>
+    <mat-autocomplete #auto_{{ fkDisplayField.name }}="matAutocomplete" [displayWith]="display{{ fkEntityName }}{{fkDisplayField.name|capitalize}}">
+      <mat-option *ngFor="let v of {{ fkEntity.name|lower }}$|async" 
+        [value]="v">{{ "{{" }}v.{{ fkDisplayField.name }} {{ "}}" }}</mat-option>
+    </mat-autocomplete>
+    {%- endfor %}
     {%- endif %}
-
+    {%- endif %}
+    {%- endif %}
     {%- endfor %}
 </div>
 <div mat-dialog-actions>

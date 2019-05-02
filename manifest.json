@@ -1,7 +1,7 @@
 {
   "name": "Root",
   "category": "PROJECT_ROOT",
-  "description": "Spring Boot / MySQL project",
+  "description": "Angular CRUD Project",
   "access": 1,
   "attributes": [
     {
@@ -11,7 +11,7 @@
       "access": 3,
       "order": 1,
       "type": "string",
-      "value": "MySpringBootMysqlApp"
+      "value": "MyAngularCRUD"
     },
     {
       "name": "description",
@@ -20,7 +20,7 @@
       "type": "string",
       "access": 3,
       "order": 4,
-      "value": "Bob's Spring Boot MySQL backend"
+      "value": "Bob's Angular Frontend"
     },
     {
       "name": "version",
@@ -52,7 +52,8 @@
         {
           "source":{
             "name":"domain",
-            "author":"codemancy"
+            "author":"codemancy",
+            "version":"LATEST"
           },
           "name": "domain",
           "description": "The Domain of your Application",

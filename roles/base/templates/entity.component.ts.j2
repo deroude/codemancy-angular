@@ -20,7 +20,8 @@ export class {{ entity.name }}Component implements OnInit {
     dataSource$: Observable<Page<{{ entity.name }}>>;
 
     ngOnInit() {
-        this.dataSource$ = this.{{ entity.name|lower }}Service.getAll();
+        this._load();
+        this.dialog.afterAllClosed.subscribe(()=>this._load());
     }
 
     add() {
@@ -28,5 +29,9 @@ export class {{ entity.name }}Component implements OnInit {
            width: '250px',
            data: {} as {{ entity.name }}
         });
+    }
+
+    private _load(){
+        this.dataSource$ = this.{{ entity.name|lower }}Service.getAll('');
     }
 }
