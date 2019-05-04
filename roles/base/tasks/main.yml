@@ -2,6 +2,8 @@
   copy:
       src: "{{role_path}}/files/"
       dest: "{{ targetDir }}"
+  async: 60
+  poll: 0
 - name: create domain interface for each entity
   loop: "{{ entities }}"
   vars:
@@ -10,6 +12,8 @@
   template: 
     src: "entity.ts.j2"
     dest: "{{ targetDir }}/src/app/domain/{{ entity.name|lower }}.ts"
+  async: 60
+  poll: 0
 - name: create component directory for each entity
   loop: "{{ entities }}"
   file:
@@ -23,6 +27,8 @@
   template: 
     src: "entity.component.ts.j2"
     dest: "{{ targetDir }}/src/app/components/{{ item.name|lower }}/{{ item.name|lower }}.component.ts"
+  async: 60
+  poll: 0
 - name: create component template for each entity
   loop: "{{ entities }}"
   vars:
@@ -31,6 +37,8 @@
   template: 
     src: "entity.component.html.j2"
     dest: "{{ targetDir }}/src/app/components/{{ item.name|lower }}/{{ item.name|lower }}.component.html"
+  async: 60
+  poll: 0
 - name: create component stylesheet for each entity
   loop: "{{ entities }}"
   vars:
@@ -39,6 +47,8 @@
   template: 
     src: "entity.component.scss.j2"
     dest: "{{ targetDir }}/src/app/components/{{ item.name|lower }}/{{ item.name|lower }}.component.scss"
+  async: 60
+  poll: 0
 - name: create component editor controller for each entity
   loop: "{{ entities }}"
   vars:
@@ -47,6 +57,8 @@
   template: 
     src: "entity.editor.component.ts.j2"
     dest: "{{ targetDir }}/src/app/components/{{ item.name|lower }}/{{ item.name|lower }}.editor.component.ts"
+  async: 60
+  poll: 0
 - name: create component editor template for each entity
   loop: "{{ entities }}"
   vars:
@@ -55,6 +67,8 @@
   template: 
     src: "entity.editor.component.html.j2"
     dest: "{{ targetDir }}/src/app/components/{{ item.name|lower }}/{{ item.name|lower }}.editor.component.html"
+  async: 60
+  poll: 0
 - name: create component editor stylesheet for each entity
   loop: "{{ entities }}"
   vars:
@@ -63,6 +77,8 @@
   template: 
     src: "entity.editor.component.scss.j2"
     dest: "{{ targetDir }}/src/app/components/{{ item.name|lower }}/{{ item.name|lower }}.editor.component.scss"
+  async: 60
+  poll: 0
 - name: create service for each entity
   loop: "{{ entities }}"
   vars:
@@ -71,15 +87,23 @@
   template: 
     src: "entity.service.ts.j2"
     dest: "{{ targetDir }}/src/app/services/{{ item.name|lower }}.service.ts"
+  async: 60
+  poll: 0
 - name: create app module
   template: 
     src: "app.module.ts.j2"
     dest: "{{ targetDir }}/src/app/app.module.ts"
+  async: 60
+  poll: 0
 - name: create app routing module
   template: 
     src: "app-routing.module.ts.j2"
     dest: "{{ targetDir }}/src/app/app-routing.module.ts"
+  async: 60
+  poll: 0
 - name: create main nav template
   template: 
     src: "main-nav.component.html.j2"
     dest: "{{ targetDir }}/src/app/components/main-nav/main-nav.component.html"
+  async: 60
+  poll: 0
