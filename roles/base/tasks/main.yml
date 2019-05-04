@@ -1,7 +1,7 @@
 - name: copy static files
   copy:
       src: "{{role_path}}/files/"
-      dest: /target
+      dest: "{{ targetDir }}"
 - name: create domain interface for each entity
   loop: "{{ entities }}"
   vars:
@@ -9,11 +9,11 @@
     fields: "{{ (entity.relations|selectattr('name','equalto','fields')|first).children|list }}"
   template: 
     src: "entity.ts.j2"
-    dest: "/target/src/app/domain/{{ entity.name|lower }}.ts"
+    dest: "{{ targetDir }}/src/app/domain/{{ entity.name|lower }}.ts"
 - name: create component directory for each entity
   loop: "{{ entities }}"
   file:
-    path: "/target/src/app/components/{{ item.name|lower }}"
+    path: "{{ targetDir }}/src/app/components/{{ item.name|lower }}"
     state: directory
 - name: create component controller for each entity
   loop: "{{ entities }}"
@@ -22,7 +22,7 @@
     fields: "{{ (entity.relations|selectattr('name','equalto','fields')|first).children|list }}"
   template: 
     src: "entity.component.ts.j2"
-    dest: "/target/src/app/components/{{ item.name|lower }}/{{ item.name|lower }}.component.ts"
+    dest: "{{ targetDir }}/src/app/components/{{ item.name|lower }}/{{ item.name|lower }}.component.ts"
 - name: create component template for each entity
   loop: "{{ entities }}"
   vars:
@@ -30,7 +30,7 @@
     fields: "{{ (entity.relations|selectattr('name','equalto','fields')|first).children|list }}"
   template: 
     src: "entity.component.html.j2"
-    dest: "/target/src/app/components/{{ item.name|lower }}/{{ item.name|lower }}.component.html"
+    dest: "{{ targetDir }}/src/app/components/{{ item.name|lower }}/{{ item.name|lower }}.component.html"
 - name: create component stylesheet for each entity
   loop: "{{ entities }}"
   vars:
@@ -38,7 +38,7 @@
     fields: "{{ (entity.relations|selectattr('name','equalto','fields')|first).children|list }}"
   template: 
     src: "entity.component.scss.j2"
-    dest: "/target/src/app/components/{{ item.name|lower }}/{{ item.name|lower }}.component.scss"
+    dest: "{{ targetDir }}/src/app/components/{{ item.name|lower }}/{{ item.name|lower }}.component.scss"
 - name: create component editor controller for each entity
   loop: "{{ entities }}"
   vars:
@@ -46,7 +46,7 @@
     fields: "{{ (entity.relations|selectattr('name','equalto','fields')|first).children|list }}"
   template: 
     src: "entity.editor.component.ts.j2"
-    dest: "/target/src/app/components/{{ item.name|lower }}/{{ item.name|lower }}.editor.component.ts"
+    dest: "{{ targetDir }}/src/app/components/{{ item.name|lower }}/{{ item.name|lower }}.editor.component.ts"
 - name: create component editor template for each entity
   loop: "{{ entities }}"
   vars:
@@ -54,7 +54,7 @@
     fields: "{{ (entity.relations|selectattr('name','equalto','fields')|first).children|list }}"
   template: 
     src: "entity.editor.component.html.j2"
-    dest: "/target/src/app/components/{{ item.name|lower }}/{{ item.name|lower }}.editor.component.html"
+    dest: "{{ targetDir }}/src/app/components/{{ item.name|lower }}/{{ item.name|lower }}.editor.component.html"
 - name: create component editor stylesheet for each entity
   loop: "{{ entities }}"
   vars:
@@ -62,7 +62,7 @@
     fields: "{{ (entity.relations|selectattr('name','equalto','fields')|first).children|list }}"
   template: 
     src: "entity.editor.component.scss.j2"
-    dest: "/target/src/app/components/{{ item.name|lower }}/{{ item.name|lower }}.editor.component.scss"
+    dest: "{{ targetDir }}/src/app/components/{{ item.name|lower }}/{{ item.name|lower }}.editor.component.scss"
 - name: create service for each entity
   loop: "{{ entities }}"
   vars:
@@ -70,16 +70,16 @@
     fields: "{{ (entity.relations|selectattr('name','equalto','fields')|first).children|list }}"
   template: 
     src: "entity.service.ts.j2"
-    dest: "/target/src/app/services/{{ item.name|lower }}.service.ts"
+    dest: "{{ targetDir }}/src/app/services/{{ item.name|lower }}.service.ts"
 - name: create app module
   template: 
     src: "app.module.ts.j2"
-    dest: "/target/src/app/app.module.ts"
+    dest: "{{ targetDir }}/src/app/app.module.ts"
 - name: create app routing module
   template: 
     src: "app-routing.module.ts.j2"
-    dest: "/target/src/app/app-routing.module.ts"
+    dest: "{{ targetDir }}/src/app/app-routing.module.ts"
 - name: create main nav template
   template: 
     src: "main-nav.component.html.j2"
-    dest: "/target/src/app/components/main-nav/main-nav.component.html"
+    dest: "{{ targetDir }}/src/app/components/main-nav/main-nav.component.html"

@@ -3,6 +3,6 @@
   gather_facts: no
   connection: local
   vars:
-    project: "{{ lookup('file', '/target/project.json') | from_json }}"
+    project: "{{ lookup('file', targetDir+'/project.json') | from_json }}"
   roles:
     - base
