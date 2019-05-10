@@ -45,7 +45,7 @@
     {
       "name": "features",
       "label": "Application features",
-      "description": "Your Spring Application features",
+      "description": "Your Angular Application features",
       "preferredRender": "ACCORDION",
       "access": 1,
       "children":[
