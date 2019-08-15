@@ -1,7 +1,7 @@
 <h1 mat-dialog-title>{{ entity.name }}</h1>
 <div mat-dialog-content>
   {%- for field in fields %}
-  {%- if field.attributes|selectattr("name","equalto","generated")|selectattr("value","equalto","true")|list|length == 0 %}
+  {%- if field.attributes|selectattr("name","equalto","generated")|selectattr("value","equalto",true)|list|length == 0 %}
     {% if field.attributes|selectattr("name","equalto","type")|selectattr("value","equalto","Date")|list|length > 0 %}
     <mat-form-field>
       <input matInput [matDatepicker]="picker" placeholder="{{ field.name|capitalize }}" [(ngModel)]="data.{{ field.name }}">
@@ -44,7 +44,7 @@
       {%- set fkEntityName=(field.attributes|selectattr("name","equalto","type")|first).value %}
       {%- set fkEntity=entities|selectattr("name","equalto", fkEntityName)|first %}
       {%- set fkFields=(fkEntity.relations|selectattr("name","equalto","fields")|first).children|list %}
-      {%- for fkDisplayField in fkFields if fkDisplayField.attributes|selectattr("name","equalto","display")|selectattr("value","equalto","true")|list|length>0%}
+      {%- for fkDisplayField in fkFields if fkDisplayField.attributes|selectattr("name","equalto","display")|selectattr("value","equalto",true)|list|length>0%}
     <mat-form-field>
       <input type="text" matInput [(ngModel)]="data.{{ field.name }}" [matAutocomplete]="auto_{{ fkDisplayField.name }}" 
         placeholder="{{ field.name|capitalize }}" (change)="load{{ fkEntity.name }}($event.target.value)">

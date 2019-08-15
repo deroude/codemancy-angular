@@ -9,7 +9,7 @@
       {%- set fkEntityName=(field.attributes|selectattr("name","equalto","type")|first).value %}
       {%- set fkEntity=entities|selectattr("name","equalto", fkEntityName)|first %}
       {%- set fkFields=(fkEntity.relations|selectattr("name","equalto","fields")|first).children|list %}
-      {%- for fkDisplayField in fkFields if fkDisplayField.attributes|selectattr("name","equalto","display")|selectattr("value","equalto","true")|list|length>0%}
+      {%- for fkDisplayField in fkFields if fkDisplayField.attributes|selectattr("name","equalto","display")|selectattr("value","equalto",true)|list|length>0%}
   <ng-container matColumnDef="{{ field.name }}">
     <th mat-header-cell *matHeaderCellDef> {{ field.name|capitalize }} </th>
     <td mat-cell *matCellDef="let element"> {{'{{'}}element.{{ field.name }}.{{ fkDisplayField.name }}{{'}}'}} </td>

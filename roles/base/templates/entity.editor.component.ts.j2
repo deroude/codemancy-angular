@@ -61,7 +61,7 @@ export class {{ entity.name }}EditorComponent implements OnInit, AfterViewInit {
     {%- set fkEntityName=(field.attributes|selectattr("name","equalto","type")|first).value %}
       {%- set fkEntity=entities|selectattr("name","equalto", fkEntityName)|first %}
       {%- set fkFields=(fkEntity.relations|selectattr("name","equalto","fields")|first).children|list %}
-      {%- for fkDisplayField in fkFields if fkDisplayField.attributes|selectattr("name","equalto","display")|selectattr("value","equalto","true")|list|length>0%}
+      {%- for fkDisplayField in fkFields if fkDisplayField.attributes|selectattr("name","equalto","display")|selectattr("value","equalto",true)|list|length>0%}
     
     display{{ fkEntityName }}{{fkDisplayField.name|capitalize}}({{ fkEntityName|lower }}: {{ fkEntityName }}) {
       return {{ fkEntityName|lower }}.{{fkDisplayField.name}};

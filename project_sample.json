@@ -52,7 +52,7 @@
                                                             "label": "Generated field",
                                                             "description": "Is this field auto-generated?",
                                                             "order": 5,
-                                                            "value": "true",
+                                                            "value": true,
                                                             "type": "boolean",
                                                             "access": 0
                                                         },
@@ -61,7 +61,7 @@
                                                             "label": "Optional",
                                                             "description": "Is this field optional?",
                                                             "order": 8,
-                                                            "value": "false",
+                                                            "value": false,
                                                             "type": "boolean",
                                                             "access": 0
                                                         },
@@ -70,7 +70,7 @@
                                                             "label": "Id field",
                                                             "description": "Is this field the unique id?",
                                                             "order": 4,
-                                                            "value": "true",
+                                                            "value": true,
                                                             "type": "boolean",
                                                             "access": 0
                                                         },
@@ -88,7 +88,7 @@
                                                             "label": "Enumeration",
                                                             "description": "Enumeration values for this field",
                                                             "order": 3,
-                                                            "value": "false",
+                                                            "value": false,
                                                             "type": "enumeration",
                                                             "access": 0
                                                         },
@@ -97,7 +97,7 @@
                                                             "label": "Basic",
                                                             "description": "Is this field basic (i.e.) not a foreign key?",
                                                             "order": 6,
-                                                            "value": "false",
+                                                            "value": false,
                                                             "type": "boolean",
                                                             "access": 0
                                                         }
@@ -127,7 +127,7 @@
                                                             "label": "Generated field",
                                                             "description": "Is this field auto-generated?",
                                                             "order": 5,
-                                                            "value": "false",
+                                                            "value": false,
                                                             "type": "boolean",
                                                             "access": 0
                                                         },
@@ -136,7 +136,7 @@
                                                             "label": "Optional",
                                                             "description": "Is this field optional?",
                                                             "order": 8,
-                                                            "value": "false",
+                                                            "value": false,
                                                             "type": "boolean",
                                                             "access": 3
                                                         },
@@ -145,7 +145,7 @@
                                                             "label": "Id field",
                                                             "description": "Is this field the unique id?",
                                                             "order": 4,
-                                                            "value": "false",
+                                                            "value": false,
                                                             "type": "boolean",
                                                             "access": 0
                                                         },
@@ -164,7 +164,7 @@
                                                             "label": "Enumeration",
                                                             "description": "Enumeration values for this field",
                                                             "order": 3,
-                                                            "value": "false",
+                                                            "value": false,
                                                             "type": "enumeration",
                                                             "access": 0
                                                         },
@@ -173,7 +173,7 @@
                                                             "label": "Basic",
                                                             "description": "Is this field basic (i.e.) not a foreign key?",
                                                             "order": 6,
-                                                            "value": "false",
+                                                            "value": false,
                                                             "type": "boolean",
                                                             "access": 0
                                                         }
@@ -199,7 +199,7 @@
                                                             "label": "Generated field",
                                                             "description": "Is this field auto-generated?",
                                                             "order": 5,
-                                                            "value": "false",
+                                                            "value": false,
                                                             "type": "boolean",
                                                             "access": 0
                                                         },
@@ -208,7 +208,7 @@
                                                             "label": "Optional",
                                                             "description": "Is this field optional?",
                                                             "order": 8,
-                                                            "value": "false",
+                                                            "value": false,
                                                             "type": "boolean",
                                                             "access": 3
                                                         },
@@ -217,7 +217,7 @@
                                                             "label": "Id field",
                                                             "description": "Is this field the unique id?",
                                                             "order": 4,
-                                                            "value": "false",
+                                                            "value": false,
                                                             "type": "boolean",
                                                             "access": 0
                                                         },
@@ -242,7 +242,7 @@
                                                             "label": "Enumeration",
                                                             "description": "Enumeration values for this field",
                                                             "order": 3,
-                                                            "value": "false",
+                                                            "value": false,
                                                             "type": "enumeration",
                                                             "access": 0
                                                         },
@@ -251,7 +251,7 @@
                                                             "label": "Basic",
                                                             "description": "Is this field basic (i.e.) not a foreign key?",
                                                             "order": 6,
-                                                            "value": "true",
+                                                            "value": true,
                                                             "type": "boolean",
                                                             "access": 0
                                                         }
@@ -277,7 +277,7 @@
                                                             "label": "Generated field",
                                                             "description": "Is this field auto-generated?",
                                                             "order": 5,
-                                                            "value": "false",
+                                                            "value": false,
                                                             "type": "boolean",
                                                             "access": 0
                                                         },
@@ -286,7 +286,7 @@
                                                             "label": "Optional",
                                                             "description": "Is this field optional?",
                                                             "order": 8,
-                                                            "value": "false",
+                                                            "value": false,
                                                             "type": "boolean",
                                                             "access": 3
                                                         },
@@ -295,7 +295,7 @@
                                                             "label": "Display field",
                                                             "description": "This field will be used to label the entity",
                                                             "order": 9,
-                                                            "value": "true",
+                                                            "value": true,
                                                             "type": "boolean",
                                                             "access": 3
                                                         },
@@ -304,7 +304,7 @@
                                                             "label": "Id field",
                                                             "description": "Is this field the unique id?",
                                                             "order": 4,
-                                                            "value": "false",
+                                                            "value": false,
                                                             "type": "boolean",
                                                             "access": 0
                                                         },
@@ -329,7 +329,7 @@
                                                             "label": "Enumeration",
                                                             "description": "Enumeration values for this field",
                                                             "order": 3,
-                                                            "value": "false",
+                                                            "value": false,
                                                             "type": "enumeration",
                                                             "access": 0
                                                         },
@@ -338,7 +338,7 @@
                                                             "label": "Basic",
                                                             "description": "Is this field basic (i.e.) not a foreign key?",
                                                             "order": 6,
-                                                            "value": "true",
+                                                            "value": true,
                                                             "type": "boolean",
                                                             "access": 0
                                                         }
@@ -364,7 +364,7 @@
                                                             "label": "Generated field",
                                                             "description": "Is this field auto-generated?",
                                                             "order": 5,
-                                                            "value": "false",
+                                                            "value": false,
                                                             "type": "boolean",
                                                             "access": 0
                                                         },
@@ -373,7 +373,7 @@
                                                             "label": "Optional",
                                                             "description": "Is this field optional?",
                                                             "order": 8,
-                                                            "value": "false",
+                                                            "value": false,
                                                             "type": "boolean",
                                                             "access": 3
                                                         },
@@ -382,7 +382,7 @@
                                                             "label": "Id field",
                                                             "description": "Is this field the unique id?",
                                                             "order": 4,
-                                                            "value": "false",
+                                                            "value": false,
                                                             "type": "boolean",
                                                             "access": 0
                                                         },
@@ -407,7 +407,7 @@
                                                             "label": "Enumeration",
                                                             "description": "Enumeration values for this field",
                                                             "order": 3,
-                                                            "value": "false",
+                                                            "value": false,
                                                             "type": "enumeration",
                                                             "access": 0
                                                         },
@@ -416,7 +416,7 @@
                                                             "label": "Basic",
                                                             "description": "Is this field basic (i.e.) not a foreign key?",
                                                             "order": 6,
-                                                            "value": "true",
+                                                            "value": true,
                                                             "type": "boolean",
                                                             "access": 0
                                                         }
@@ -458,7 +458,7 @@
                                                             "label": "Generated field",
                                                             "description": "Is this field auto-generated?",
                                                             "order": 5,
-                                                            "value": "false",
+                                                            "value": false,
                                                             "type": "boolean",
                                                             "access": 0
                                                         },
@@ -467,7 +467,7 @@
                                                             "label": "Optional",
                                                             "description": "Is this field optional?",
                                                             "order": 8,
-                                                            "value": "false",
+                                                            "value": false,
                                                             "type": "boolean",
                                                             "access": 3
                                                         },
@@ -476,7 +476,7 @@
                                                             "label": "Id field",
                                                             "description": "Is this field the unique id?",
                                                             "order": 4,
-                                                            "value": "false",
+                                                            "value": false,
                                                             "type": "boolean",
                                                             "access": 0
                                                         },
@@ -494,7 +494,7 @@
                                                             "label": "Enumeration",
                                                             "description": "Enumeration values for this field",
                                                             "order": 3,
-                                                            "value": "true",
+                                                            "value": true,
                                                             "type": "enumeration",
                                                             "access": 0,
                                                             "possibleValues": [
@@ -507,7 +507,7 @@
                                                             "label": "Basic",
                                                             "description": "Is this field basic (i.e.) not a foreign key?",
                                                             "order": 6,
-                                                            "value": "true",
+                                                            "value": true,
                                                             "type": "boolean",
                                                             "access": 0
                                                         }
@@ -533,7 +533,7 @@
                                                             "label": "Generated field",
                                                             "description": "Is this field auto-generated?",
                                                             "order": 5,
-                                                            "value": "false",
+                                                            "value": false,
                                                             "type": "boolean",
                                                             "access": 0
                                                         },
@@ -542,7 +542,7 @@
                                                             "label": "Optional",
                                                             "description": "Is this field optional?",
                                                             "order": 8,
-                                                            "value": "false",
+                                                            "value": false,
                                                             "type": "boolean",
                                                             "access": 3
                                                         },
@@ -551,7 +551,7 @@
                                                             "label": "Id field",
                                                             "description": "Is this field the unique id?",
                                                             "order": 4,
-                                                            "value": "false",
+                                                            "value": false,
                                                             "type": "boolean",
                                                             "access": 0
                                                         },
@@ -569,7 +569,7 @@
                                                             "label": "Enumeration",
                                                             "description": "Enumeration values for this field",
                                                             "order": 3,
-                                                            "value": "true",
+                                                            "value": true,
                                                             "type": "enumeration",
                                                             "access": 0,
                                                             "possibleValues": [
@@ -582,7 +582,7 @@
                                                             "label": "Basic",
                                                             "description": "Is this field basic (i.e.) not a foreign key?",
                                                             "order": 6,
-                                                            "value": "true",
+                                                            "value": true,
                                                             "type": "boolean",
                                                             "access": 0
                                                         }
@@ -608,7 +608,7 @@
                                                             "label": "Generated field",
                                                             "description": "Is this field auto-generated?",
                                                             "order": 5,
-                                                            "value": "false",
+                                                            "value": false,
                                                             "type": "boolean",
                                                             "access": 0
                                                         },
@@ -617,7 +617,7 @@
                                                             "label": "Optional",
                                                             "description": "Is this field optional?",
                                                             "order": 8,
-                                                            "value": "false",
+                                                            "value": false,
                                                             "type": "boolean",
                                                             "access": 3
                                                         },
@@ -626,7 +626,7 @@
                                                             "label": "Display field",
                                                             "description": "This field will be used to label the entity",
                                                             "order": 9,
-                                                            "value": "true",
+                                                            "value": true,
                                                             "type": "boolean",
                                                             "access": 3
                                                         },
@@ -635,7 +635,7 @@
                                                             "label": "Id field",
                                                             "description": "Is this field the unique id?",
                                                             "order": 4,
-                                                            "value": "false",
+                                                            "value": false,
                                                             "type": "boolean",
                                                             "access": 0
                                                         },
@@ -660,7 +660,7 @@
                                                             "label": "Enumeration",
                                                             "description": "Enumeration values for this field",
                                                             "order": 3,
-                                                            "value": "false",
+                                                            "value": false,
                                                             "type": "enumeration",
                                                             "access": 0
                                                         },
@@ -669,7 +669,7 @@
                                                             "label": "Basic",
                                                             "description": "Is this field basic (i.e.) not a foreign key?",
                                                             "order": 6,
-                                                            "value": "true",
+                                                            "value": true,
                                                             "type": "boolean",
                                                             "access": 0
                                                         }
@@ -695,7 +695,7 @@
                                                             "label": "Generated field",
                                                             "description": "Is this field auto-generated?",
                                                             "order": 5,
-                                                            "value": "false",
+                                                            "value": false,
                                                             "type": "boolean",
                                                             "access": 0
                                                         },
@@ -704,7 +704,7 @@
                                                             "label": "Optional",
                                                             "description": "Is this field optional?",
                                                             "order": 8,
-                                                            "value": "false",
+                                                            "value": false,
                                                             "type": "boolean",
                                                             "access": 3
                                                         },
@@ -713,7 +713,7 @@
                                                             "label": "Id field",
                                                             "description": "Is this field the unique id?",
                                                             "order": 4,
-                                                            "value": "false",
+                                                            "value": false,
                                                             "type": "boolean",
                                                             "access": 0
                                                         },
@@ -738,7 +738,7 @@
                                                             "label": "Enumeration",
                                                             "description": "Enumeration values for this field",
                                                             "order": 3,
-                                                            "value": "false",
+                                                            "value": false,
                                                             "type": "enumeration",
                                                             "access": 0
                                                         },
@@ -747,7 +747,7 @@
                                                             "label": "Basic",
                                                             "description": "Is this field basic (i.e.) not a foreign key?",
                                                             "order": 6,
-                                                            "value": "true",
+                                                            "value": true,
                                                             "type": "boolean",
                                                             "access": 0
                                                         }
@@ -773,7 +773,7 @@
                                                             "label": "Generated field",
                                                             "description": "Is this field auto-generated?",
                                                             "order": 5,
-                                                            "value": "true",
+                                                            "value": true,
                                                             "type": "boolean",
                                                             "access": 0
                                                         },
@@ -782,7 +782,7 @@
                                                             "label": "Optional",
                                                             "description": "Is this field optional?",
                                                             "order": 8,
-                                                            "value": "false",
+                                                            "value": false,
                                                             "type": "boolean",
                                                             "access": 0
                                                         },
@@ -791,7 +791,7 @@
                                                             "label": "Id field",
                                                             "description": "Is this field the unique id?",
                                                             "order": 4,
-                                                            "value": "true",
+                                                            "value": true,
                                                             "type": "boolean",
                                                             "access": 0
                                                         },
@@ -809,7 +809,7 @@
                                                             "label": "Enumeration",
                                                             "description": "Enumeration values for this field",
                                                             "order": 3,
-                                                            "value": "false",
+                                                            "value": false,
                                                             "type": "enumeration",
                                                             "access": 0
                                                         },
@@ -818,7 +818,7 @@
                                                             "label": "Basic",
                                                             "description": "Is this field basic (i.e.) not a foreign key?",
                                                             "order": 6,
-                                                            "value": "false",
+                                                            "value": false,
                                                             "type": "boolean",
                                                             "access": 0
                                                         }
