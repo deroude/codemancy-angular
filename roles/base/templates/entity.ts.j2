@@ -1,7 +1,10 @@
 export interface {{ entity.name }} {
     
     {%- for field in fields %}
-    {% if field.attributes|selectattr("name","equalto","type")|selectattr("value","equalto","Date")|list|length > 0 %}
+    {% if field.attributes|selectattr("name","equalto","fk")|selectattr("value","equalto","ManyToOne")|list|length > 0 %}
+    {{ field.name }}: {{(field.attributes|selectattr("name","equalto","type")|first).value}};
+
+    {% elif field.attributes|selectattr("name","equalto","type")|selectattr("value","equalto","Date")|list|length > 0 %}
     {{ field.name }}: Date;
 
     {% elif field.attributes|selectattr("name","equalto","type")|selectattr("value","equalto","String")|list|length > 0 %}
