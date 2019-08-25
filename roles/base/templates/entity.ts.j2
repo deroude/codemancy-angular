@@ -1,3 +1,10 @@
+{% for field in fields %}
+{% if field.attributes|selectattr("name","equalto","fk")|selectattr("value","equalto","ManyToOne")|list|length > 0 %}
+{% set fkField = (field.attributes|selectattr("name","equalto","type")|first).value %}
+import { {{ fkField }} } from '../../domain/{{ fkField|lower }}';
+{% endif %}
+{% endfor %}
+
 export interface {{ entity.name }} {
     
     {%- for field in fields %}
